@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.example.demo.common.UserRepository">
+		
+		<select id="identifyUser" parameterType="java.lang.String" resultMap="userDetails">
+		<![CDATA[
+			SELECT  MEMBERS.EMAIL,
+					MEMBERS.PASSWORD,
+					MEMBER_ROLES.ROLE,
+					CODEMST.CODE_NM
+			FROM	MEMBERS
+			LEFT OUTER JOIN MEMBER_ROLES
+			ON     MEMBER_ROLES.MEMBER_CODE = MEMBERS.MEMBER_CODE
+			LEFT OUTER JOIN CODEMST
+			ON     CODEMST.CODE_ID   = 1
+			AND    CODEMST.CODE      = MEMBER_ROLES.ROLE
+			WHERE	EMAIL		= #{email}
+		]]>
+		</select>
+		
+		<resultMap type="com.example.demo.auth.AuthenticatedUser" id="userDetails">
+			<result property="email" column="EMAIL" />
+			<result property="password" column="PASSWORD" />
+			<collection property="roles" ofType="com.example.demo.common.Option">
+				<result property="code" column="ROLE"/>
+				<result property="name" column="CODE_NM" />
+		</collection>
+		</resultMap>
+	</mapper>

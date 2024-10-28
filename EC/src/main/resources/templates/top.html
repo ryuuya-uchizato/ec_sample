@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>トップ</title>
+</head>
+<body>
+	トップメニュー
+	<form th:action="@{/logout}" method="post">
+		<button type="submit" class="btn btn-success btn-sm shadowsm">ログオフ</button>
+	</form>
+</body>
+</html>

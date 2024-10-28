@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/signup.css}">
+<title>新規登録</title>
+</head>
+<body>
+	<header>
+		<div class="title">会員登録</div>
+	</header>
+	<main>
+		<div class="main-child">
+			<div class="container-fluid">
+				<div class="title2">会員情報入力</div>
+				<form th:action="@{/signup}" method="post" class="">
+					<table class="fromTable">
+						<tbody>
+							<tr>
+								<th class="formTable_head">
+								お名前
+								<span class="labelRequired">必須</span>
+								</th>
+								<td class="formTable_body">
+									<div class="formTable_col">
+										<input type="text" class="last-name input_text" placeholder="姓" autofocus/>
+									</div>
+									<div class="formTable_col">
+										<input type="text" class="first-name input_text" placeholder="名"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="formTable_head">
+								お名前(カナ)
+								<span class="labelRequired">必須</span>
+								</th>
+								<td class="formTable_body">
+									<div class="formTable_col">
+										<input type="text" class="last-name-kana input_text" placeholder="セイ" />
+									</div>
+									<div class="formTable_col">
+										<input type="text" class="first-name-kana input_text" placeholder="メイ"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="formTable_head">
+								住所
+								<span class="labelRequired">必須</span>
+								</th>
+								<td class="formTable_body">
+									<div class="formTable_col">
+										〒
+										<input type="text" class="post input_text" id="zip_code" name="zip_code" placeholder="例：1230002" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="formTable_head">
+								</th>
+								<td class="formTable_body">
+									<div class="formTable_col">
+										<input type="text" class="address1" id="address1" name="address1" placeholder="都道府県を選択" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="formTable_head">
+								</th>
+								<td class="formTable_body">
+									<div class="formTable_col">
+										<input type="text" class="address2" id="address2" name="address2" placeholder="市区町村名" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="formTable_head">
+								</th>
+								<td class="formTable_body">
+									<div class="formTable_col">
+										<input type="text" class="address3" id="address3" name="address3" placeholder="番地・ビル名" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="formTable_head">
+								メールアドレス
+								<span class="labelRequired">必須</span>
+								</th>
+								<td class="formTable_body">
+									<div class="formTable_col">
+										<input type="text" class="email" placeholder="例：hogehoge@example.com" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="formTable_head">
+								電話番号
+								<span class="labelRequired">必須</span>
+								</th>
+								<td class="formTable_body">
+									<div class="formTable_col">
+										<input type="text" class="tel-phone" placeholder="例：11122223333" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="formTable_head">
+								パスワード
+								<span class="labelRequired">必須</span>
+								</th>
+								<td class="formTable_body">
+									<div class="formTable_col">
+										<input type="password" class="password" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="formTable_head">
+								パスワード(確認用)
+								<span class="labelRequired">必須</span>
+								</th>
+								<td class="formTable_body">
+									<div class="formTable_col">
+										<input type="password" class="password2" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="formTable_head">
+								性別
+								</th>
+								<td class="formTable_body">
+									<div class="formTable_col">
+										<input type="radio" class="men" name="sex"/>
+										<label for="men">男性</label>
+										<input type="radio" class="women" name="sex"/>
+										<label for="women">女性</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="formTable_head">
+								誕生日
+								</th>
+								<td class="formTable_body">
+									<div class="formTable_col">
+										<input type="text" class="birthday" placeholder="年/月/日" />
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="">
+						<button type="submit" class="registration">登録</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+	<footer></footer>
+	<!-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<script th:src="@{/js/postal_api2.js}"></script> -->
+</body>
+</html>

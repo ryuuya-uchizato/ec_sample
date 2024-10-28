@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/login.css}">
+<title>ログイン</title>
+</head>
+<body>
+	<header style="background-color: white; height: 8%;"></header>
+	<main class="text-center d-flex align-items-center justify-content-center" style="background-color: rgb(218, 218, 218); height:84%;">
+		<form th:action="@{/login}" method="post" th:object="${authenticatedUser}" novalidate>
+			<div class="form-group bg-white" style="width: 360px;">
+				<div>
+					<img alt="island3.png" src="../static/img/island3.png" th:src="@{/img/island3.png}" class="my-4">
+				</div>
+				<div>
+					<span class="text-danger" th:text="${message}"></span>
+				</div>
+				<div class="mx-5">
+					<input type="email" th:field="*{email}" class="form-control" placeholder="メールアドレス" autofocus/>
+				</div>
+				<div class="mt-4 mx-5">
+					<input type="password" th:field="*{password}" class="form-control" placeholder="パスワード"/>
+				</div>
+				<div class="mt-4 mx-5 d-grid gap-2">
+					<button type="submit" class="btn btn-primary mb-5 border-0" style="background-color: #5AABEE;">ログイン</button>
+				</div>
+			</div>
+			<p class="my-3">アカウントを持っていませんか？</p>
+			<a th:href="@{/signup}" class="link1" style="text-decoration: none;">アカウント作成</a>
+		</form>
+	</main>
+	<footer style="background-color: white; height: 8%;"></footer>
+</body>
+</html>
